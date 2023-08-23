@@ -1,0 +1,30 @@
+
+<template>
+    <lightning-card title="Recent Accounts">
+        <div class="slds-m-around_medium">
+            <template if:true={accounts}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-text-title_caps">
+                            <th scope="col">Name</th>
+                            <th scope="col">Employee</th>
+                            <th scope="col">Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={accounts} for:item="account">
+                            <tr key={account.Id}>
+                                <td data-label="Name">{account.Name}</td>
+                                <td data-label="Industry">{account.NumberOfEmployees}</td>
+                                <td data-label="Phone">{account.HighSalary__c}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            <template if:false={accounts}>
+                No accounts found.
+            </template>
+        </div>
+    </lightning-card>
+</template>
